@@ -2,14 +2,10 @@ package org.launchcode.javawebdevtechjobspersistent.models;
 
 import java.util.ArrayList;
 
-// This is a change made in sandbox.
-
 /**
  * Created by LaunchCode
  */
 public class JobData {
-
-
     /**
      * Returns the results of searching the Jobs data by field and search term.
      *
@@ -41,7 +37,6 @@ public class JobData {
                 results.add(job);
             }
         }
-
         return results;
     }
 
@@ -52,9 +47,8 @@ public class JobData {
         } else if (fieldName.equals("employer")){
             theValue = job.getEmployer().toString();
         } else {
-            theValue = job.toString();
+            theValue = job.getSkills().toString();
         }
-
         return theValue;
     }
 
@@ -67,26 +61,20 @@ public class JobData {
      */
     public static ArrayList<Job> findByValue(String value, Iterable<Job> allJobs) {
 
-
         ArrayList<Job> results = new ArrayList<>();
 
         for (Job job : allJobs) {
-
             if (job.getName().toLowerCase().contains(value.toLowerCase())) {
                 results.add(job);
-            } else if (job.getEmployer().toLowerCase().contains(value.toLowerCase())) {
+            } else if (job.getEmployer().toString().toLowerCase().contains(value.toLowerCase())) {
                 results.add(job);
             } else if (job.getSkills().contains(value.toLowerCase())) {
                 results.add(job);
             } else if (job.toString().toLowerCase().contains(value.toLowerCase())) {
                 results.add(job);
             }
-
         }
-
         return results;
     }
-
-
 }
 
