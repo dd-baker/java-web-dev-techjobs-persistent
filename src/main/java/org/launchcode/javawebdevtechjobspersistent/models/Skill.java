@@ -21,7 +21,8 @@ public class Skill extends AbstractEntity {
     @NotBlank
     private String description;
 
-    public Skill(String description) {
+    public Skill (String description, List<Job> jobs) {
+        super();
         this.description = description;
     }
 
@@ -32,4 +33,6 @@ public class Skill extends AbstractEntity {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public List<Job> getJobs() {return jobs;}
 }
